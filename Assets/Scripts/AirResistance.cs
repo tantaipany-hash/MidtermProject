@@ -1,16 +1,17 @@
 using UnityEngine;
 
-public class AirRisi : MonoBehaviour
+public class AirResistance : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float drag = 0.2f;
+    Rigidbody rb;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        rb.AddForce(-rb.linearVelocity * drag);
     }
 }

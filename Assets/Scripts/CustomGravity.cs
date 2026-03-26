@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class CustomGravity : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Transform center;
+    public float gravity = 9.8f;
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        Vector3 dir = (center.position - transform.position).normalized;
+        GetComponent<Rigidbody>().AddForce(dir * gravity);
     }
 }
